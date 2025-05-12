@@ -140,77 +140,16 @@ else :
     
     <!-- PAGE SCRIPT -->
     <script>
-      //-----------------
-      // Leaflet
-      //-----------------
-      // Initialize the map
-      var map = L.map('map', {zoomSnap: 0.25}).setView([-2.5, 117], 4.75);
-      
-      // Base layer (OpenStreetMap)
-      var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-      }).addTo(map);
-      
-      // GeoJSON overlay
-      var indonesiaLayer = L.geoJSON(null, {
-        style: {
-          color: "blue",
-          weight: 2,
-          fillOpacity: 0.3
-        },
-        filter: function (feature) {
-          return feature.properties && feature.properties.active_status === "not-active";
-        },
-        onEachFeature: function (feature, layer) {
-          if (feature.properties && feature.properties.state) {
-            layer.bindPopup(feature.properties.state);
-          }
-        }
-      }).addTo(map);
-      
-      // GeoJSON overlay
-      var sebaranAlumni = L.geoJSON(null, {
-        style: {
-          color: 'red',
-          weight: 2,
-          fillOpacity: 0.3
-        },
-        filter: function (feature) {
-          return feature.properties && feature.properties.active_status === "active";
-        },
-        onEachFeature: function (feature, layer) {
-          console.log(feature.properties.active_status === 'active');
-          if (feature.properties && feature.properties.state) {
-            layer.bindPopup(feature.properties.state);
-          }
-        }
-      }).addTo(map);
-      
-      // Load GeoJSON dynamically
-      fetch(`<?= base_url('assets/json/indonesia.geojson') ?>`)
-        .then(response => response.json())
-        .then(data => {
-          indonesiaLayer.addData(data);
-          sebaranAlumni.addData(data);
-        });
-      
-      // Layer controls
-      var baseLayers = {
-        "OpenStreetMap": osm
-      };
-      
-      var overlays = {
-        "Provinsi di Indonesia": indonesiaLayer,
-        "Sebaran Alumni": sebaranAlumni,
-      };
-      
-      // Add layer control to the map
-      L.control.layers(baseLayers, overlays, {
-        collapsed: false
-      }).addTo(map);
-
-
       $(document).ready(function() {
+        
+        // 
+        fetch('https://okta467.github.io/api-wilayah-indonesia/api/provinces.json')
+          .then(response => response.json())
+          .then(data => {
+            console.log(data)
+          });
+        
+        
         $('.toggle_modal_tambah').on('click', function() {
           $('#ModalInputPemetaan .modal-title').html(`<i data-feather="plus-circle" class="me-2 mt-1"></i>Tambah Pemetaan`);
           $('#ModalInputPemetaan form').attr({action: 'pemetaan_tambah.php', method: 'post'});
@@ -264,6 +203,76 @@ else :
             }
           });
         });
+
+        
+        //-----------------
+        // Leaflet
+        //-----------------
+        // Initialize the map
+        var map = L.map('map', {zoomSnap: 0.25}).setView([-2.5, 117], 4.75);
+        
+        // Base layer (OpenStreetMap)
+        var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // GeoJSON overlay
+        var indonesiaLayer = L.geoJSON(null, {
+          style: {
+            color: "blue",
+            weight: 2,
+            fillOpacity: 0.3
+          },
+          filter: function (feature) {
+            return feature.properties && feature.properties.active_status === "not-active";
+          },
+          onEachFeature: function (feature, layer) {
+            if (feature.properties && feature.properties.state) {
+              layer.bindPopup(feature.properties.state);
+            }
+          }
+        }).addTo(map);
+        
+        // GeoJSON overlay
+        var sebaranAlumni = L.geoJSON(null, {
+          style: {
+            color: 'red',
+            weight: 2,
+            fillOpacity: 0.3
+          },
+          filter: function (feature) {
+            return feature.properties && feature.properties.active_status === "active";
+          },
+          onEachFeature: function (feature, layer) {
+            console.log(feature.properties.active_status === 'active');
+            if (feature.properties && feature.properties.state) {
+              layer.bindPopup(feature.properties.state);
+            }
+          }
+        }).addTo(map);
+        
+        // Load GeoJSON dynamically
+        fetch(`<?= base_url('assets/json/indonesia.geojson') ?>`)
+          .then(response => response.json())
+          .then(data => {
+            indonesiaLayer.addData(data);
+            sebaranAlumni.addData(data);
+          });
+        
+        // Layer controls
+        var baseLayers = {
+          "OpenStreetMap": osm
+        };
+        
+        var overlays = {
+          "Provinsi di Indonesia": indonesiaLayer,
+          "Sebaran Alumni": sebaranAlumni,
+        };
+        
+        // Add layer control to the map
+        L.control.layers(baseLayers, overlays, {
+          collapsed: false
+        }).addTo(map);
         
       });
     </script>
