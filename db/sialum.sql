@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2024 at 09:59 PM
+-- Generation Time: May 12, 2025 at 04:05 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `si_seleksi_lomba`
+-- Database: `sialum`
 --
 
 -- --------------------------------------------------------
@@ -244,6 +244,40 @@ INSERT INTO `tbl_pangkat_golongan` (`id`, `nama_pangkat_golongan`, `tipe`, `crea
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_pekerjaan_alumni`
+--
+
+CREATE TABLE `tbl_pekerjaan_alumni` (
+  `id_pekerjaan_alumni` int(10) UNSIGNED NOT NULL,
+  `id_alumni` int(10) UNSIGNED DEFAULT NULL,
+  `nama_perusahaan` varchar(128) NOT NULL,
+  `jabatan` varchar(128) NOT NULL,
+  `status_pekerjaan` enum('masih_bekerja','resign','magang','') NOT NULL,
+  `deskripsi_pekerjaan` varchar(1000) NOT NULL,
+  `tanggal_masuk` date NOT NULL,
+  `tanggal_keluar` date DEFAULT NULL,
+  `alamat_simpel` varchar(255) NOT NULL,
+  `alamat_perusahaan_provinsi` varchar(255) NOT NULL,
+  `alamat_perusahaan_kab_kota` varchar(255) NOT NULL,
+  `alamat_perusahaan_kecamatan` varchar(255) NOT NULL,
+  `alamat_perusahaan_kelurahan` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_pekerjaan_alumni`
+--
+
+INSERT INTO `tbl_pekerjaan_alumni` (`id_pekerjaan_alumni`, `id_alumni`, `nama_perusahaan`, `jabatan`, `status_pekerjaan`, `deskripsi_pekerjaan`, `tanggal_masuk`, `tanggal_keluar`, `alamat_simpel`, `alamat_perusahaan_provinsi`, `alamat_perusahaan_kab_kota`, `alamat_perusahaan_kecamatan`, `alamat_perusahaan_kelurahan`, `created_at`, `updated_at`) VALUES
+(1, 1, 'PT Bukit Asam Tbk.', 'Teknologi Informasi', 'masih_bekerja', 'analisis, merancang, develop, dan maintenance software perusahaan', '2025-08-01', '0000-00-00', 'Muara Enim', '16', '1603', '1603050', '1603050001', '2025-05-12 11:08:41', '2025-05-12 12:59:20'),
+(3, 3, 'Shopee Indonesia', 'Gudang', 'masih_bekerja', 'Pergudangan', '2020-01-01', '0000-00-00', 'Tanjung Api-Api', '16', '1671', '1671041', '1671041002', '2025-05-12 12:33:53', '2025-05-12 13:02:50'),
+(4, 4, 'PT Bank ', 'IT Support', 'masih_bekerja', 'IT Support', '2020-01-01', '0000-00-00', 'Ilir', '16', '1671', '1671041', '1671041002', '2025-05-12 14:00:00', NULL),
+(5, 6, 'Samsung', 'Sales', 'masih_bekerja', 'Sales HP', '2019-01-01', '0000-00-00', 'Jakarta Selatan', '31', '3171', '3171090', '3171090007', '2025-05-12 14:05:07', NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_pendidikan`
 --
 
@@ -291,7 +325,7 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`id`, `username`, `password`, `hak_akses`, `created_at`, `last_login`) VALUES
-(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2024-06-24 14:55:52'),
+(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2025-05-11 23:03:38'),
 (23, 'okta467', '$2y$10$0lhFQXTfT8wjZ9YmmNVWruV36NLEeFoLKEbrwWaMfjHv3gtOb2H4C', 'siswa', '2024-06-24 18:13:00', '2024-06-24 14:58:51'),
 (24, 'bimasatria', '$2y$10$PJ0tlPZHqurX0xzM2NA.XO3AXBpKr6oPbWI6m2u2V8haaDMfpk2J.', 'siswa', '2024-06-24 18:17:17', NULL),
 (25, '196506121990022003', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'kepala_sekolah', '2024-06-24 18:29:06', NULL);
@@ -384,6 +418,7 @@ CREATE TABLE `tbl_siswa` (
   `tgl_lahir` date NOT NULL,
   `no_telp` varchar(16) DEFAULT NULL,
   `email` varchar(128) NOT NULL,
+  `tahun_lulus` smallint(5) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -392,12 +427,12 @@ CREATE TABLE `tbl_siswa` (
 -- Dumping data for table `tbl_siswa`
 --
 
-INSERT INTO `tbl_siswa` (`id`, `id_pengguna`, `id_kelas`, `nisn`, `nama_siswa`, `jk`, `alamat`, `tmp_lahir`, `tgl_lahir`, `no_telp`, `email`, `created_at`, `updated_at`) VALUES
-(1, 23, 11, '9991814928', 'Okta Alfiansyah', 'l', 'Kertapati', 'Palembang', '1999-10-10', '62087799055070', 'oktaalfiansyah@gmail.com', '2024-06-24 19:28:19', '2024-06-24 19:28:19'),
-(3, 24, 11, '9991814872', 'Bima Satria', 'l', 'Gang Duren', 'Palembang', '2024-05-08', '087765432345', 'bimasatria@gmail.com', '2024-06-24 18:17:17', '2024-06-24 18:17:17'),
-(4, NULL, 11, '9997672534', 'Arief Rahman', 'l', 'Jakabaring', 'Palembang', '2024-05-27', '087700111100', 'ariefrahman@gmail.com', '2024-06-24 11:56:42', '2024-06-24 11:56:42'),
-(5, NULL, 11, '9987652345', 'Benny Setiawan', 'l', 'Palembang', 'Palembang', '1998-05-01', '6262620819920019', 'bennysetiawan@gmail.com', '2024-06-24 12:21:07', '2024-06-24 12:21:07'),
-(6, NULL, 1, '1278567890', 'Nelam Salmah', 'l', 'Palembang', 'Palembang', '1999-06-12', '6262087865234567', 'nelamsalmah@gmail.com', '2024-06-24 18:16:57', '2024-06-24 18:16:57');
+INSERT INTO `tbl_siswa` (`id`, `id_pengguna`, `id_kelas`, `nisn`, `nama_siswa`, `jk`, `alamat`, `tmp_lahir`, `tgl_lahir`, `no_telp`, `email`, `tahun_lulus`, `created_at`, `updated_at`) VALUES
+(1, 23, 11, '9991814928', 'Okta Alfiansyah', 'l', 'Kertapati', 'Palembang', '1999-10-10', '62087799055070', 'oktaalfiansyah@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
+(3, 24, 11, '9991814872', 'Bima Satria', 'l', 'Gang Duren', 'Palembang', '2024-05-08', '087765432345', 'bimasatria@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
+(4, NULL, 11, '9997672534', 'Arief Rahman', 'l', 'Jakabaring', 'Palembang', '2024-05-27', '087700111100', 'ariefrahman@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
+(5, NULL, 11, '9987652345', 'Benny Setiawan', 'l', 'Palembang', 'Palembang', '1998-05-01', '6262620819920019', 'bennysetiawan@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
+(6, NULL, 1, '1278567890', 'Nelam Salmah', 'l', 'Palembang', 'Palembang', '1999-06-12', '6262087865234567', 'nelamsalmah@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18');
 
 -- --------------------------------------------------------
 
@@ -470,6 +505,13 @@ ALTER TABLE `tbl_kompetensi_siswa`
 --
 ALTER TABLE `tbl_pangkat_golongan`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_pekerjaan_alumni`
+--
+ALTER TABLE `tbl_pekerjaan_alumni`
+  ADD PRIMARY KEY (`id_pekerjaan_alumni`),
+  ADD KEY `id_alumni` (`id_alumni`);
 
 --
 -- Indexes for table `tbl_pendidikan`
@@ -563,6 +605,12 @@ ALTER TABLE `tbl_pangkat_golongan`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
+-- AUTO_INCREMENT for table `tbl_pekerjaan_alumni`
+--
+ALTER TABLE `tbl_pekerjaan_alumni`
+  MODIFY `id_pekerjaan_alumni` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `tbl_pendidikan`
 --
 ALTER TABLE `tbl_pendidikan`
@@ -629,6 +677,12 @@ ALTER TABLE `tbl_jurusan_pendidikan`
 --
 ALTER TABLE `tbl_kompetensi_siswa`
   ADD CONSTRAINT `tbl_kompetensi_siswa_ibfk_1` FOREIGN KEY (`id_siswa`) REFERENCES `tbl_siswa` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `tbl_pekerjaan_alumni`
+--
+ALTER TABLE `tbl_pekerjaan_alumni`
+  ADD CONSTRAINT `tbl_pekerjaan_alumni_ibfk_1` FOREIGN KEY (`id_alumni`) REFERENCES `tbl_siswa` (`id`) ON DELETE SET NULL ON UPDATE CASCADE;
 
 --
 -- Constraints for table `tbl_penilaian_seleksi`
