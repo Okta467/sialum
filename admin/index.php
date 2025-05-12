@@ -60,14 +60,14 @@ else :
                 <div class="row align-items-center justify-content-between">
                   <div class="col">
                     <h2 class="text-primary">Selamat datang di <?= SITE_NAME_SHORT ?>!</h2>
-                    <p class="text-gray-700"><?= SITE_NAME_SHORT ?> merupakan sistem informasi untuk membantu sekolah dalam menyeleksi pendaftaran siswa mengikuti lomba LKS tingkat Kabupaten/Kota pada SMK Tunas Harapan, Palembang.</p>
+                    <p class="text-gray-700"><?= SITE_NAME_SHORT ?> merupakan Sistem Informasi Pendataan dan Pemetaan Lokasi Kerja Alumni di <?= SITE_NAME ?>.</p>
                     
                     <a class="btn btn-primary p-3" href="#!">
                       Get Started
                       <i class="ms-1" data-feather="arrow-right"></i>
                     </a>
                   </div>
-                  <div class="col d-none d-lg-block mt-xxl-n4"><img class="img-fluid px-xl-4 mt-xxl-n5" src="<?= base_url('assets/img/illustrations/statistics.svg') ?>" /></div>
+                  <div class="col d-none d-lg-block mt-xxl-n4"><img class="img-fluid px-xl-4 mt-xxl-n5" src="<?= base_url('assets/img/illustrations/undraw/working-blue.svg') ?>" /></div>
                 </div>
               </div>
             </div>
