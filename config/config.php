@@ -1,14 +1,14 @@
 <?php 
 	function base_url($path = 'index.php') {
-		echo "/si_seleksi_lomba/" . $path;
+		echo "/sialum/" . $path;
 	}
 
 	function base_url_return($path = 'index.php') {
-		return "/si_seleksi_lomba/" . $path;
+		return "/sialum/" . $path;
 	}
 
     date_default_timezone_set("Asia/Bangkok");
 	
-	DEFINE("SITE_NAME", "SI Seleksi Pendaftaran Lomba Pendaftaran LKS");
-	DEFINE("SITE_NAME_SHORT", "SIDALOM");
+	DEFINE("SITE_NAME", "SMK Madyatama Palembang");
+	DEFINE("SITE_NAME_SHORT", "SIALUM");
 ?>
