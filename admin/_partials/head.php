@@ -12,6 +12,11 @@
 
 <link href="<?= base_url('assets/css/MY_styles.css') ?>" rel="stylesheet" />
 
+<link href="<?= base_url('vendors/leaflet 1.9.4/leaflet.css') ?>" rel="stylesheet" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="<?= base_url('vendors/leaflet 1.9.4/leaflet.js') ?>"></script>
+
 <script data-search-pseudo-elements defer src="<?= base_url('assets/js/fontawesome/fontawesome-all.min.js') ?>" crossorigin="anonymous"></script>
 
 <script src="<?= base_url('assets/js/feather/feather.min.js') ?>" crossorigin="anonymous"></script>

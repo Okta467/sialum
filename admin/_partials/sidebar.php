@@ -50,6 +50,11 @@ $user_logged_in = $_SESSION['nama_pegawai'] ?? $_SESSION['nama_guest'] ?? $_SESS
       
       <div class="sidenav-menu-heading">Data Siswa</div>
       
+      <a class="nav-link <?php if ($current_page === 'pemetaan') echo 'active' ?>" href="pemetaan.php?go=pemetaan">
+        <div class="nav-link-icon"><i data-feather="map"></i></div>
+        Pemetaan
+      </a>
+      
       <a class="nav-link <?php if ($current_page === 'kompetensi_siswa') echo 'active' ?>" href="kompetensi_siswa.php?go=kompetensi_siswa">
         <div class="nav-link-icon"><i data-feather="star"></i></div>
         Kompetensi
