@@ -13,6 +13,12 @@
 
 <script src="<?= base_url('vendors/moment/moment.min.js') ?>"></script>
 
+<script src="<?= base_url('vendors/easymde/js/easymde.min.js') ?>"></script>
+
+<script src="<?= base_url('vendors/marked/marked.min.js') ?>"></script>
+
+<script src="<?= base_url('vendors/DOMPurify-3.1.5/dist/purify.min.js') ?>"></script>
+
 <script src="<?= base_url('assets/js/MY_scripts.js') ?>"></script>
 
 <!-- Make sure you put this AFTER Leaflet's CSS -->

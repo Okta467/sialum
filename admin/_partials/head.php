@@ -8,6 +8,8 @@
 
 <link href="<?= base_url('vendors/select2/css/select2.min.css') ?>" rel="stylesheet" />
 
+<link href="<?= base_url('vendors/easymde/css/easymde.min.css') ?>" rel="stylesheet" />
+
 <link href="<?= base_url('vendors/dropify/css/dropify.min.css') ?>" rel="stylesheet" />
 
 <link href="<?= base_url('assets/css/MY_styles.css') ?>" rel="stylesheet" />
