@@ -31,28 +31,16 @@ $user_logged_in = $_SESSION['nama_pegawai'] ?? $_SESSION['nama_guest'] ?? $_SESS
         Guru
       </a>
       
-      <div class="sidenav-menu-heading">Seleksi</div>
-      
-      <a class="nav-link <?php if ($current_page === 'penilaian') echo 'active' ?>" href="penilaian.php?go=penilaian">
-        <div class="nav-link-icon"><i data-feather="edit-2"></i></div>
-        Penilaian
-      </a>
-      
-      <a class="nav-link <?php if ($current_page === 'pengumuman') echo 'active' ?>" href="pengumuman.php?go=pengumuman">
-        <div class="nav-link-icon"><i data-feather="flag"></i></div>
-        Pengumuman
-      </a>
-      
-      <a class="nav-link <?php if ($current_page === 'tahun_penilaian') echo 'active' ?>" href="tahun_penilaian.php?go=tahun_penilaian">
-        <div class="nav-link-icon"><i data-feather="calendar"></i></div>
-        Tahun Penilaian
-      </a>
-      
       <div class="sidenav-menu-heading">Data Siswa</div>
       
       <a class="nav-link <?php if ($current_page === 'pemetaan') echo 'active' ?>" href="pemetaan.php?go=pemetaan">
         <div class="nav-link-icon"><i data-feather="map"></i></div>
         Pemetaan
+      </a>
+      
+      <a class="nav-link <?php if ($current_page === 'pekerjaan_alumni') echo 'active' ?>" href="pekerjaan_alumni.php?go=pekerjaan_alumni">
+        <div class="nav-link-icon"><i data-feather="award"></i></div>
+        Pekerjaan
       </a>
       
       <a class="nav-link <?php if ($current_page === 'kompetensi_siswa') echo 'active' ?>" href="kompetensi_siswa.php?go=kompetensi_siswa">
