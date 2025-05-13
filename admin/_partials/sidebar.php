@@ -52,6 +52,11 @@ $user_logged_in = $_SESSION['nama_pegawai'] ?? $_SESSION['nama_guest'] ?? $_SESS
         <div class="nav-link-icon"><i data-feather="star"></i></div>
         Prestasi
       </a>
+
+      <a class="nav-link <?php if ($current_page === 'kelas') echo 'active' ?>" href="kelas.php?go=kelas">
+        <div class="nav-link-icon"><i data-feather="book-open"></i></div>
+        Kelas
+      </a>
       
       <div class="sidenav-menu-heading">Lainnya</div>
 
