@@ -4,7 +4,7 @@
     // cek apakah user yang mengakses adalah admin?
     if (!isAccessAllowed('admin')) {
         session_destroy();
-        // echo "<meta http-equiv='refresh' content='0;" . base_url_return('index.php?msg=other_error') . "'>";
+        echo "<meta http-equiv='refresh' content='0;" . base_url_return('index.php?msg=other_error') . "'>";
         return;
     }
 
@@ -32,7 +32,7 @@
 
     if (!$is_allowed_status_pekerjaan) {
         $_SESSION['msg'] = 'Status pekerjaan yang diinput tidak diperbolehkan!';
-        // echo "<meta http-equiv='refresh' content='0;pekerjaan_alumni.php?go=pekerjaan_alumni'>";
+        echo "<meta http-equiv='refresh' content='0;pekerjaan_alumni.php?go=pekerjaan_alumni'>";
         return;
     }
 
