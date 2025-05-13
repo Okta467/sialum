@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2025 at 03:23 PM
+-- Generation Time: May 13, 2025 at 03:26 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -452,11 +452,11 @@ CREATE TABLE `tbl_siswa` (
 --
 
 INSERT INTO `tbl_siswa` (`id`, `id_pengguna`, `id_kelas`, `nisn`, `nama_siswa`, `jk`, `alamat`, `tmp_lahir`, `tgl_lahir`, `no_telp`, `email`, `tahun_lulus`, `created_at`, `updated_at`) VALUES
-(1, 23, 11, '9991814928', 'Okta Alfiansyah', 'l', 'Kertapati', 'Palembang', '1999-10-10', '6262620877990550', 'oktaalfiansyah@gmail.com', NULL, '2025-05-13 13:22:32', '2025-05-13 13:22:32'),
-(3, 24, 11, '9991814872', 'Bima Satria', 'l', 'Gang Duren', 'Palembang', '2024-05-08', '087765432345', 'bimasatria@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
-(4, 26, 11, '9997672534', 'Arief Rahman', 'l', 'Jakabaring', 'Palembang', '2024-05-27', '087700111100', 'ariefrahman@gmail.com', NULL, '2025-05-13 08:13:20', '2025-05-13 08:13:20'),
-(5, NULL, 11, '9987652345', 'Benny Setiawan', 'l', 'Palembang', 'Palembang', '1998-05-01', '6262620819920019', 'bennysetiawan@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
-(6, NULL, 1, '1278567890', 'Nelam Salmah', 'l', 'Palembang', 'Palembang', '1999-06-12', '6262087865234567', 'nelamsalmah@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
+(1, 23, 9, '9991814928', 'Okta Alfiansyah', 'l', 'Kertapati', 'Palembang', '1999-10-10', '6262620877990550', 'oktaalfiansyah@gmail.com', NULL, '2025-05-13 13:24:56', '2025-05-13 13:24:56'),
+(3, 24, 9, '9991814872', 'Bima Satria', 'l', 'Gang Duren', 'Palembang', '2024-05-08', '087765432345', 'bimasatria@gmail.com', NULL, '2025-05-13 13:24:56', '2025-05-13 13:24:56'),
+(4, 26, 9, '9997672534', 'Arief Rahman', 'l', 'Jakabaring', 'Palembang', '2024-05-27', '087700111100', 'ariefrahman@gmail.com', NULL, '2025-05-13 13:24:56', '2025-05-13 13:24:56'),
+(5, NULL, 9, '9987652345', 'Benny Setiawan', 'l', 'Palembang', 'Palembang', '1998-05-01', '6262620819920019', 'bennysetiawan@gmail.com', NULL, '2025-05-13 13:24:56', '2025-05-13 13:24:56'),
+(6, NULL, 3, '1278567890', 'Nelam Salmah', 'p', 'Palembang', 'Palembang', '1999-06-12', '6262620878652345', 'nelamsalmah@gmail.com', NULL, '2025-05-13 13:25:56', '2025-05-13 13:25:56'),
 (7, 27, 3, '0000000007', 'hsisasdasdasdahe', 'l', 'kertapati', 'Palembang', '2025-05-13', '6262620811764523', 'testsiswa@gmail.com', NULL, '2025-05-13 13:16:50', '2025-05-13 13:16:50');
 
 -- --------------------------------------------------------
