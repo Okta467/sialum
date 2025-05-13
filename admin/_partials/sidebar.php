@@ -53,6 +53,13 @@ $user_logged_in = $_SESSION['nama_pegawai'] ?? $_SESSION['nama_guest'] ?? $_SESS
         Prestasi
       </a>
       
+      <div class="sidenav-menu-heading">Lainnya</div>
+
+      <a class="nav-link <?php if ($current_page === 'informasi') echo 'active' ?>" href="informasi.php?go=informasi">
+        <div class="nav-link-icon"><i data-feather="info"></i></div>
+        Informasi
+      </a>
+      
       <div class="sidenav-menu-heading">Detail Guru</div>
 
       <a class="nav-link <?php if ($current_page === 'jabatan') echo 'active' ?>" href="jabatan.php?go=jabatan">
