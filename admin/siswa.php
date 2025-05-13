@@ -246,6 +246,11 @@ else :
               </div>
     
               <div class="mb-3">
+                <label class="small mb-1" for="xusername">Username <span class="text-danger fw-bold">*</span></label>
+                <input class="form-control" id="xusername" type="text" name="xusername" placeholder="Enter username" required>
+              </div>
+    
+              <div class="mb-3">
                 <label class="small mb-1" for="xpassword">Password <span class="text-danger fw-bold">*</span></label>
                 <div class="input-group input-group-joined mb-1">
                   <input class="form-control mb-1" id="xpassword" type="password" name="xpassword" placeholder="Enter password" autocomplete="new-password" required>
@@ -392,6 +397,7 @@ else :
               $('#ModalInputSiswa #xnisn').val(data[0].nisn);
               $('#ModalInputSiswa #xnama_siswa').val(data[0].nama_siswa);
               $('#ModalInputSiswa #xid_kelas').val(data[0].id_kelas).trigger('change');
+              $('#ModalInputSiswa #xusername').val(data[0].username);
               $(`#ModalInputSiswa input[name="xjk"][value="${data[0].jk}"]`).prop('checked', true)
               $('#ModalInputSiswa #xalamat').val(data[0].alamat);
               $('#ModalInputSiswa #xtmp_lahir').val(data[0].tmp_lahir);
