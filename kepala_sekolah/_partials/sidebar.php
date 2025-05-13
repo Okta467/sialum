@@ -14,16 +14,38 @@ $user_logged_in = $_SESSION['nama_pegawai'] ?? $_SESSION['nama_guest'] ?? $_SESS
         Dashboard
       </a>
 
-      <div class="sidenav-menu-heading">Data Utama</div>
+      <div class="sidenav-menu-heading">Akun</div>
 
       <a class="nav-link <?php if ($current_page === 'profil') echo 'active' ?>" href="profil.php?go=profil">
         <div class="nav-link-icon"><i data-feather="user"></i></div>
         Profil
       </a>
       
-      <a class="nav-link <?php if ($current_page === 'pengumuman') echo 'active' ?>" href="pengumuman.php?go=pengumuman">
-        <div class="nav-link-icon"><i data-feather="flag"></i></div>
-        Pengumuman
+      <div class="sidenav-menu-heading">Data Alumni</div>
+      
+      <a class="nav-link <?php if ($current_page === 'pemetaan') echo 'active' ?>" href="pemetaan.php?go=pemetaan">
+        <div class="nav-link-icon"><i data-feather="map"></i></div>
+        Pemetaan
+      </a>
+      
+      <a class="nav-link <?php if ($current_page === 'pekerjaan_alumni') echo 'active' ?>" href="pekerjaan_alumni.php?go=pekerjaan_alumni">
+        <div class="nav-link-icon"><i data-feather="award"></i></div>
+        Pekerjaan
+      </a>
+      
+      <a class="nav-link <?php if ($current_page === 'kompetensi_siswa') echo 'active' ?>" href="kompetensi_siswa.php?go=kompetensi_siswa">
+        <div class="nav-link-icon"><i data-feather="star"></i></div>
+        Kompetensi
+      </a>
+      
+      <a class="nav-link <?php if ($current_page === 'prestasi_siswa') echo 'active' ?>" href="prestasi_siswa.php?go=prestasi_siswa">
+        <div class="nav-link-icon"><i data-feather="star"></i></div>
+        Prestasi
+      </a>
+
+      <a class="nav-link <?php if ($current_page === 'informasi') echo 'active' ?>" href="informasi.php?go=informasi">
+        <div class="nav-link-icon"><i data-feather="info"></i></div>
+        Informasi
       </a>
       
       <div class="sidenav-menu-heading">Lainnya</div>
