@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 12, 2025 at 04:05 PM
+-- Generation Time: May 13, 2025 at 04:20 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -58,6 +58,27 @@ INSERT INTO `tbl_guru` (`id`, `id_pengguna`, `id_jabatan`, `id_pangkat_golongan`
 (8, NULL, 5, 5, 9, 33, '9999999999888777', 'Nur Widyasti', 'p', 'Palembang', 'Palembang', '2024-03-31', 2010, '2024-06-10 18:02:33', '2024-06-24 12:14:30'),
 (9, NULL, 5, 4, 9, 34, '1979762520140320', 'Susmayasari', 'p', 'Palembang', 'Palembang', '2024-05-26', 2014, '2024-06-10 19:01:29', '2024-06-24 12:14:30'),
 (10, NULL, 5, 4, 9, 4, '1989986520190220', 'Nunsianah', 'p', 'Plaju', 'Palembang', '2024-05-26', 2010, '2024-06-10 19:02:12', '2024-06-24 12:46:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_informasi`
+--
+
+CREATE TABLE `tbl_informasi` (
+  `id_informasi` int(10) UNSIGNED NOT NULL,
+  `judul_informasi` varchar(128) NOT NULL,
+  `isi_informasi` varchar(5000) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_informasi`
+--
+
+INSERT INTO `tbl_informasi` (`id_informasi`, `judul_informasi`, `isi_informasi`, `created_at`, `updated_at`) VALUES
+(2, 'Promo Diskon untuk Barang VXYZ', 'Kabar gembira bagi sobat Auto 2000 karena di tanggal 5 Mei ini akan ada banyak diskon untuk beberapa barang tertentu. Untuk list barang yang diskon bisa dicek di bawah, ya, sobat!\r\n1. Barang V\r\n2. Barang X\r\n3. Barang Y\r\n4. Barang Z', '2025-05-04 11:16:36', '2025-05-04 11:20:23');
 
 -- --------------------------------------------------------
 
@@ -325,8 +346,8 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`id`, `username`, `password`, `hak_akses`, `created_at`, `last_login`) VALUES
-(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2025-05-11 23:03:38'),
-(23, 'okta467', '$2y$10$0lhFQXTfT8wjZ9YmmNVWruV36NLEeFoLKEbrwWaMfjHv3gtOb2H4C', 'siswa', '2024-06-24 18:13:00', '2024-06-24 14:58:51'),
+(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2025-05-12 21:18:20'),
+(23, 'okta467', '$2y$10$0lhFQXTfT8wjZ9YmmNVWruV36NLEeFoLKEbrwWaMfjHv3gtOb2H4C', 'siswa', '2024-06-24 18:13:00', '2025-05-12 21:18:18'),
 (24, 'bimasatria', '$2y$10$PJ0tlPZHqurX0xzM2NA.XO3AXBpKr6oPbWI6m2u2V8haaDMfpk2J.', 'siswa', '2024-06-24 18:17:17', NULL),
 (25, '196506121990022003', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'kepala_sekolah', '2024-06-24 18:29:06', NULL);
 
@@ -474,6 +495,12 @@ ALTER TABLE `tbl_guru`
   ADD KEY `id_pengguna` (`id_pengguna`);
 
 --
+-- Indexes for table `tbl_informasi`
+--
+ALTER TABLE `tbl_informasi`
+  ADD PRIMARY KEY (`id_informasi`);
+
+--
 -- Indexes for table `tbl_jabatan`
 --
 ALTER TABLE `tbl_jabatan`
@@ -573,6 +600,12 @@ ALTER TABLE `tbl_tahun_penilaian`
 --
 ALTER TABLE `tbl_guru`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `tbl_informasi`
+--
+ALTER TABLE `tbl_informasi`
+  MODIFY `id_informasi` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_jabatan`
