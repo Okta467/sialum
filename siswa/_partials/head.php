@@ -8,9 +8,16 @@
 
 <link href="<?= base_url('vendors/select2/css/select2.min.css') ?>" rel="stylesheet" />
 
+<link href="<?= base_url('vendors/easymde/css/easymde.min.css') ?>" rel="stylesheet" />
+
 <link href="<?= base_url('vendors/dropify/css/dropify.min.css') ?>" rel="stylesheet" />
 
 <link href="<?= base_url('assets/css/MY_styles.css') ?>" rel="stylesheet" />
+
+<link href="<?= base_url('vendors/leaflet 1.9.4/leaflet.css') ?>" rel="stylesheet" />
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="<?= base_url('vendors/leaflet 1.9.4/leaflet.js') ?>"></script>
 
 <script data-search-pseudo-elements defer src="<?= base_url('assets/js/fontawesome/fontawesome-all.min.js') ?>" crossorigin="anonymous"></script>
 
