@@ -20,6 +20,3 @@
 <script src="<?= base_url('vendors/DOMPurify-3.1.5/dist/purify.min.js') ?>"></script>
 
 <script src="<?= base_url('assets/js/MY_scripts.js') ?>"></script>
-
-<!-- Make sure you put this AFTER Leaflet's CSS -->
-<script src="<?= base_url('vendors/leaflet 1.9.4/leaflet.js') ?>"integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
