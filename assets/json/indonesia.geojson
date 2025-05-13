@@ -839,8 +839,8 @@
             "cartodb_id": 8,
             "country": "Indonesia",
             "id_1": 34,
-            "slug": "indonesia-yogyakarta",
-            "state": "Yogyakarta",
+            "slug": "indonesia-diyogyakarta",
+            "state": "DI Yogyakarta",
             "active_status": "not-active"
         }
     }, {
@@ -1642,8 +1642,8 @@
             "cartodb_id": 7,
             "country": "Indonesia",
             "id_1": 3,
-            "slug": "indonesia-bangkabelitung",
-            "state": "Bangka-Belitung",
+            "slug": "indonesia-kepulauanbangkabelitung",
+            "state": "Kepulauan Bangka-Belitung",
             "active_status": "not-active"
         }
     }, {
@@ -16607,8 +16607,8 @@
             "cartodb_id": 25,
             "country": "Indonesia",
             "id_1": 8,
-            "slug": "indonesia-jakartaraya",
-            "state": "Jakarta Raya",
+            "slug": "indonesia-dkijakarta",
+            "state": "DKI Jakarta",
             "active_status": "not-active"
         }
     }, {
