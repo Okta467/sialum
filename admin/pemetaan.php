@@ -58,8 +58,8 @@ else :
             <div class="card card-header-actions mb-4 mt-5">
               <div class="card-header">
                 <div>
-                  <i data-feather="map" class="me-2 mt-1"></i>
-                  Data Sebaran Alumni (di Indonesia)
+                  <i data-feather="map" class="me-2 mt-4 mt-md-0"></i>
+                  Peta Sebaran Alumni (di Indonesia)
                 </div>
                 <button class="btn btn-sm btn-primary toggle_modal_tambah" type="button"><i data-feather="plus-circle" class="me-2"></i>Tambah Data</button>
               </div>
@@ -70,25 +70,9 @@ else :
                     <div id="map" style="height: 500px"></div>
                   </div>
                   <div class="col-md-3">
-                    <div class="card mb-4">
+                    <div class="card mb-4 mt-sm-4">
                       <div class="card-header">Sebaran Alumni</div>
-                      <div class="list-group list-group-flush small">
-                        <a class="list-group-item list-group-item-action" href="#!">
-                          <i class="fas fa-location-dot fa-fw text-blue me-2"></i>
-                          Sumatera Selatan: 1 Orang
-                        </a>
-                        <a class="list-group-item list-group-item-action" href="#!">
-                          <i class="fas fa-location-dot fa-fw text-blue me-2"></i>
-                          Sumatera Selatan: 1 Orang
-                        </a>
-                        <a class="list-group-item list-group-item-action" href="#!">
-                          <i class="fas fa-location-dot fa-fw text-blue me-2"></i>
-                          Sumatera Selatan: 1 Orang
-                        </a>
-                        <a class="list-group-item list-group-item-action" href="#!">
-                          <i class="fas fa-location-dot fa-fw text-blue me-2"></i>
-                          Sumatera Selatan: 1 Orang
-                        </a>
+                      <div class="list-group list-group-flush small" id="data-sebaran-alumni">
                       </div>
                     </div>
                   </div>
@@ -106,78 +90,12 @@ else :
       </div>
     </div>
     
-    <!--============================= MODAL INPUT PEMETAAN =============================-->
-    <div class="modal fade" id="ModalInputPemetaan" tabindex="-1" role="dialog" aria-labelledby="ModalInputPemetaanTitle" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="ModalInputPemetaanTitle">Modal title</h5>
-            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form>
-            <div class="modal-body">
-              
-              <input type="hidden" id="xid_pemetaan" name="xid_pemetaan">
-            
-              <div class="mb-3">
-                <label class="small mb-1" for="xnama_pemetaan">Pemetaan</label>
-                <input type="text" name="xnama_pemetaan" class="form-control" id="xnama_pemetaan" placeholder="Enter pemetaan" required />
-              </div>
-
-            </div>
-            <div class="modal-footer">
-              <button class="btn btn-light border" type="button" data-bs-dismiss="modal">Batal</button>
-              <button class="btn btn-primary" type="submit">Simpan</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!--/.modal-input-jurusan -->
-    
     <?php include '_partials/script.php' ?>
     <?php include '../helpers/sweetalert2_notify.php' ?>
     
     <!-- PAGE SCRIPT -->
     <script>
       $(document).ready(function() {
-        
-        // 
-        fetch('https://okta467.github.io/api-wilayah-indonesia/api/provinces.json')
-          .then(response => response.json())
-          .then(data => {
-            console.log(data)
-          });
-        
-        
-        $('.toggle_modal_tambah').on('click', function() {
-          $('#ModalInputPemetaan .modal-title').html(`<i data-feather="plus-circle" class="me-2 mt-1"></i>Tambah Pemetaan`);
-          $('#ModalInputPemetaan form').attr({action: 'pemetaan_tambah.php', method: 'post'});
-
-          // Re-init all feather icons
-          feather.replace();
-          
-          $('#ModalInputPemetaan').modal('show');
-        });
-
-
-        $('.toggle_modal_ubah').on('click', function() {
-          const id_pemetaan   = $(this).data('id_pemetaan');
-          const nama_pemetaan = $(this).data('nama_pemetaan');
-          
-          $('#ModalInputPemetaan .modal-title').html(`<i data-feather="edit" class="me-2 mt-1"></i>Ubah Pemetaan`);
-          $('#ModalInputPemetaan form').attr({action: 'pemetaan_ubah.php', method: 'post'});
-
-          $('#ModalInputPemetaan #xid_pemetaan').val(id_pemetaan);
-          $('#ModalInputPemetaan #xnama_pemetaan').val(nama_pemetaan);
-
-          // Re-init all feather icons
-          feather.replace();
-          
-          $('#ModalInputPemetaan').modal('show');
-        });
-        
-
         $('#datatablesSimple').on('click', '.toggle_swal_hapus', function() {
           const id_pemetaan   = $(this).data('id_pemetaan');
           const nama_pemetaan = $(this).data('nama_pemetaan');
@@ -204,6 +122,21 @@ else :
           });
         });
 
+        const dataSebaranAlumni = <?= json_encode(include 'get_sebaran_alumni.php'); ?>; 
+        const allowedSlugs = <?= json_encode(array_column(include 'get_sebaran_alumni.php', 'slug_geojson')); ?>;
+
+        $.each(dataSebaranAlumni, function (i) {
+          let provinsi = dataSebaranAlumni[i].nama_alamat_perusahaan_provinsi;
+          let jml_alumni = dataSebaranAlumni[i].jml_provinsi;
+          
+          let htmlSebaranAlumni = `<a class="list-group-item list-group-item-action" href="#!">`
+            + `<i class="fas fa-location-dot fa-fw text-blue me-2"></i>`
+            + `${provinsi}: ${jml_alumni} Orang</a>`
+
+          $('#data-sebaran-alumni').append(htmlSebaranAlumni)
+        });
+
+
         
         //-----------------
         // Leaflet
@@ -224,7 +157,8 @@ else :
             fillOpacity: 0.3
           },
           filter: function (feature) {
-            return feature.properties && feature.properties.active_status === "not-active";
+            // Check if the feature's slug_geojson exists and is NOT in allowedSlugs array
+            return feature.properties && !allowedSlugs.includes(feature.properties.slug);
           },
           onEachFeature: function (feature, layer) {
             if (feature.properties && feature.properties.state) {
@@ -241,12 +175,13 @@ else :
             fillOpacity: 0.3
           },
           filter: function (feature) {
-            return feature.properties && feature.properties.active_status === "active";
+            // Check if the feature's slug_geojson exists and is in allowedSlugs array
+            return feature.properties && allowedSlugs.includes(feature.properties.slug);
           },
           onEachFeature: function (feature, layer) {
-            console.log(feature.properties.active_status === 'active');
+            // console.log(dataSebaranAlumni)
             if (feature.properties && feature.properties.state) {
-              layer.bindPopup(feature.properties.state);
+              layer.bindPopup(`${feature.properties.state}: ${feature.properties.jml_provinsi} Orang`);
             }
           }
         }).addTo(map);
@@ -255,8 +190,32 @@ else :
         fetch(`<?= base_url('assets/json/indonesia.geojson') ?>`)
           .then(response => response.json())
           .then(data => {
+            // Step 1: filter features that have a matching slug in allowedSlugs
+            const filteredFeatures = data.features
+              .filter(feature =>
+                dataSebaranAlumni.some(item => item.slug_geojson === feature.properties.slug)
+              )
+              .map(feature => {
+                // Step 2: enrich with jml_provinsi if found
+                const match = dataSebaranAlumni.find(item => item.slug_geojson === feature.properties.slug);
+                return {
+                  ...feature,
+                  properties: {
+                    ...feature.properties,
+                    jml_provinsi: match ? match.jml_provinsi : null,
+                    alamat_perusahaan_provinsi: match ? match.alamat_perusahaan_provinsi : null
+                  }
+                };
+              });
+              
+            // Step 3: create the final object
+            const filteredData = {
+              ...data,
+              features: filteredFeatures
+            };
+
             indonesiaLayer.addData(data);
-            sebaranAlumni.addData(data);
+            sebaranAlumni.addData(filteredData);
           });
         
         // Layer controls
