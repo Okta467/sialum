@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2025 at 04:49 AM
+-- Generation Time: May 13, 2025 at 03:03 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -54,7 +54,7 @@ INSERT INTO `tbl_guru` (`id`, `id_pengguna`, `id_jabatan`, `id_pangkat_golongan`
 (4, NULL, 5, 9, 9, 4, '199204202015031006', 'Della Rizky Andini', 'l', 'Plaju', 'Palembang', '2024-05-06', 2014, '2024-05-25 17:52:18', '2024-06-24 12:14:30'),
 (5, NULL, 5, 9, 9, 4, '198912252019022005', 'Sudaryani', 'p', 'Plaju', 'Prabumulih', '2020-04-30', 2011, '2024-05-25 17:53:27', '2024-06-24 12:11:48'),
 (6, NULL, 5, 9, 9, 4, '1988103020201901', 'Sulastinah', 'p', 'Plaju', 'Prabumulih', '2024-05-05', 2010, '2024-05-26 09:59:45', '2024-06-24 12:11:48'),
-(7, NULL, 4, 5, 10, 37, '1234567890123456', 'Abdul Kadir, M.Kom.', 'l', 'Depok', 'Depok', '2024-04-30', 2010, '2024-06-10 15:46:11', '2024-06-24 12:14:30'),
+(7, NULL, 4, 5, 10, 14, '1234567890123456', 'Abdul Kadir, M.Kom.', 'l', 'Depok', 'Depok', '2024-04-30', 2010, '2024-06-10 15:46:11', '2025-05-13 08:18:38'),
 (8, NULL, 5, 5, 9, 33, '9999999999888777', 'Nur Widyasti', 'p', 'Palembang', 'Palembang', '2024-03-31', 2010, '2024-06-10 18:02:33', '2024-06-24 12:14:30'),
 (9, NULL, 5, 4, 9, 34, '1979762520140320', 'Susmayasari', 'p', 'Palembang', 'Palembang', '2024-05-26', 2014, '2024-06-10 19:01:29', '2024-06-24 12:14:30'),
 (10, NULL, 5, 4, 9, 4, '1989986520190220', 'Nunsianah', 'p', 'Plaju', 'Palembang', '2024-05-26', 2010, '2024-06-10 19:02:12', '2024-06-24 12:46:56');
@@ -163,7 +163,7 @@ INSERT INTO `tbl_jurusan_pendidikan` (`id`, `id_pendidikan`, `nama_jurusan`, `cr
 CREATE TABLE `tbl_kelas` (
   `id` int(10) UNSIGNED NOT NULL,
   `id_wali_kelas` int(10) UNSIGNED DEFAULT NULL,
-  `nama_kelas` varchar(8) NOT NULL,
+  `nama_kelas` varchar(128) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -173,30 +173,14 @@ CREATE TABLE `tbl_kelas` (
 --
 
 INSERT INTO `tbl_kelas` (`id`, `id_wali_kelas`, `nama_kelas`, `created_at`, `updated_at`) VALUES
-(1, 8, '1A', '2024-06-10 14:31:14', '2024-06-10 18:41:14'),
-(2, 4, '1B', '2024-06-10 14:31:14', NULL),
-(3, 4, '1C', '2024-06-10 14:31:14', NULL),
-(4, 4, '1D', '2024-06-10 14:31:14', NULL),
-(5, 9, '2A', '2024-06-10 14:31:14', '2024-06-10 19:05:42'),
-(6, 4, '2B', '2024-06-10 14:31:14', NULL),
-(7, 4, '2C', '2024-06-10 14:31:14', NULL),
-(8, 4, '2D', '2024-06-10 14:31:14', NULL),
-(9, 1, '3A', '2024-06-10 14:31:14', '2024-06-10 19:05:28'),
-(10, 4, '3B', '2024-06-10 14:31:14', NULL),
-(11, 4, '3C', '2024-06-10 14:31:14', NULL),
-(12, 4, '3D', '2024-06-10 14:31:14', NULL),
-(13, 4, '4A', '2024-06-10 14:31:14', NULL),
-(14, 4, '4B', '2024-06-10 14:31:14', NULL),
-(15, 4, '4C', '2024-06-10 14:31:14', NULL),
-(16, 4, '4D', '2024-06-10 14:31:14', NULL),
-(17, 5, '5A', '2024-06-10 14:31:14', '2024-06-10 19:05:15'),
-(18, 4, '5B', '2024-06-10 14:31:14', NULL),
-(19, 4, '5C', '2024-06-10 14:31:14', NULL),
-(20, 4, '5D', '2024-06-10 14:31:14', NULL),
-(21, 6, '6A', '2024-06-10 14:31:14', '2024-06-10 19:05:04'),
-(22, 4, '6B', '2024-06-10 14:31:14', NULL),
-(23, 4, '6C', '2024-06-10 14:31:14', NULL),
-(24, 4, '6D', '2024-06-10 14:31:14', NULL);
+(1, 8, 'Perhotelan', '2024-06-10 14:31:14', '2025-05-13 13:00:36'),
+(3, 4, 'Akuntansi', '2024-06-10 14:31:14', '2025-05-13 13:02:07'),
+(11, 4, 'Teknik Komputer dan Jaringan', '2024-06-10 14:31:14', '2025-05-13 13:00:26'),
+(26, NULL, 'Administrasi Perkantoran', '2025-05-13 13:02:14', NULL),
+(27, NULL, 'Teknik Mesin', '2025-05-13 13:02:21', NULL),
+(28, NULL, 'Teknik Kendaraan Ringan', '2025-05-13 13:02:27', NULL),
+(29, NULL, 'Teknik Elektro', '2025-05-13 13:02:35', NULL),
+(30, NULL, 'Tataboga', '2025-05-13 13:02:39', NULL);
 
 -- --------------------------------------------------------
 
@@ -347,10 +331,12 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`id`, `username`, `password`, `hak_akses`, `created_at`, `last_login`) VALUES
-(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2025-05-12 21:43:36'),
+(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2025-05-13 03:14:22'),
 (23, 'okta467', '$2y$10$0lhFQXTfT8wjZ9YmmNVWruV36NLEeFoLKEbrwWaMfjHv3gtOb2H4C', 'siswa', '2024-06-24 18:13:00', '2025-05-12 21:43:38'),
 (24, 'bimasatria', '$2y$10$PJ0tlPZHqurX0xzM2NA.XO3AXBpKr6oPbWI6m2u2V8haaDMfpk2J.', 'siswa', '2024-06-24 18:17:17', NULL),
-(25, '196506121990022003', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'kepala_sekolah', '2024-06-24 18:29:06', NULL);
+(25, '196506121990022003', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'kepala_sekolah', '2024-06-24 18:29:06', NULL),
+(26, 'arief9', '$2y$10$1qEKVqVhwdpIFnx8f6BHCO5eYf1ourNTIEDqyGbU/Vxswa5ge5t2e', 'siswa', '2025-05-13 08:13:20', NULL),
+(27, '', '$2y$10$UB9Eld6.H9TJzQOVPT1o3O6P1e2/CSz5DiG3.E6tTl91Y9xP3RyL.', 'siswa', '2025-05-13 08:13:56', NULL);
 
 -- --------------------------------------------------------
 
@@ -452,9 +438,10 @@ CREATE TABLE `tbl_siswa` (
 INSERT INTO `tbl_siswa` (`id`, `id_pengguna`, `id_kelas`, `nisn`, `nama_siswa`, `jk`, `alamat`, `tmp_lahir`, `tgl_lahir`, `no_telp`, `email`, `tahun_lulus`, `created_at`, `updated_at`) VALUES
 (1, 23, 11, '9991814928', 'Okta Alfiansyah', 'l', 'Kertapati', 'Palembang', '1999-10-10', '62087799055070', 'oktaalfiansyah@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
 (3, 24, 11, '9991814872', 'Bima Satria', 'l', 'Gang Duren', 'Palembang', '2024-05-08', '087765432345', 'bimasatria@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
-(4, NULL, 11, '9997672534', 'Arief Rahman', 'l', 'Jakabaring', 'Palembang', '2024-05-27', '087700111100', 'ariefrahman@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
+(4, 26, 11, '9997672534', 'Arief Rahman', 'l', 'Jakabaring', 'Palembang', '2024-05-27', '087700111100', 'ariefrahman@gmail.com', NULL, '2025-05-13 08:13:20', '2025-05-13 08:13:20'),
 (5, NULL, 11, '9987652345', 'Benny Setiawan', 'l', 'Palembang', 'Palembang', '1998-05-01', '6262620819920019', 'bennysetiawan@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
-(6, NULL, 1, '1278567890', 'Nelam Salmah', 'l', 'Palembang', 'Palembang', '1999-06-12', '6262087865234567', 'nelamsalmah@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18');
+(6, NULL, 1, '1278567890', 'Nelam Salmah', 'l', 'Palembang', 'Palembang', '1999-06-12', '6262087865234567', 'nelamsalmah@gmail.com', NULL, '2025-05-12 11:14:18', '2025-05-12 11:14:18'),
+(7, 27, 3, '0000000007', 'hsisasdasdasdahe', 'l', 'kertapati', 'Palembang', '2025-05-13', '6262081176452367', 'testsiswa@gmail.com', NULL, '2025-05-13 08:15:53', '2025-05-13 08:15:53');
 
 -- --------------------------------------------------------
 
@@ -624,7 +611,7 @@ ALTER TABLE `tbl_jurusan_pendidikan`
 -- AUTO_INCREMENT for table `tbl_kelas`
 --
 ALTER TABLE `tbl_kelas`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `tbl_kompetensi_siswa`
@@ -642,7 +629,7 @@ ALTER TABLE `tbl_pangkat_golongan`
 -- AUTO_INCREMENT for table `tbl_pekerjaan_alumni`
 --
 ALTER TABLE `tbl_pekerjaan_alumni`
-  MODIFY `id_pekerjaan_alumni` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_pekerjaan_alumni` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_pendidikan`
@@ -654,7 +641,7 @@ ALTER TABLE `tbl_pendidikan`
 -- AUTO_INCREMENT for table `tbl_pengguna`
 --
 ALTER TABLE `tbl_pengguna`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tbl_pengumuman_seleksi`
@@ -678,7 +665,7 @@ ALTER TABLE `tbl_prestasi_siswa`
 -- AUTO_INCREMENT for table `tbl_siswa`
 --
 ALTER TABLE `tbl_siswa`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_tahun_penilaian`
