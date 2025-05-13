@@ -111,6 +111,7 @@ else :
     <script>
       $(document).ready(function() {
         const html_text = `<?= $isi_informasi ?>`;
+        console.log(html_text)
 
         const sanitized_html_text = DOMPurify.sanitize(html_text, { USE_PROFILES: { html: true } });
         const parsed_html_text = marked.parse(sanitized_html_text);
