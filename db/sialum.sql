@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2025 at 04:20 AM
+-- Generation Time: May 13, 2025 at 04:49 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -294,7 +294,8 @@ INSERT INTO `tbl_pekerjaan_alumni` (`id_pekerjaan_alumni`, `id_alumni`, `nama_pe
 (1, 1, 'PT Bukit Asam Tbk.', 'Teknologi Informasi', 'masih_bekerja', 'analisis, merancang, develop, dan maintenance software perusahaan', '2025-08-01', '0000-00-00', 'Muara Enim', '16', '1603', '1603050', '1603050001', '2025-05-12 11:08:41', '2025-05-12 12:59:20'),
 (3, 3, 'Shopee Indonesia', 'Gudang', 'masih_bekerja', 'Pergudangan', '2020-01-01', '0000-00-00', 'Tanjung Api-Api', '16', '1671', '1671041', '1671041002', '2025-05-12 12:33:53', '2025-05-12 13:02:50'),
 (4, 4, 'PT Bank ', 'IT Support', 'masih_bekerja', 'IT Support', '2020-01-01', '0000-00-00', 'Ilir', '16', '1671', '1671041', '1671041002', '2025-05-12 14:00:00', NULL),
-(5, 6, 'Samsung', 'Sales', 'masih_bekerja', 'Sales HP', '2019-01-01', '0000-00-00', 'Jakarta Selatan', '31', '3171', '3171090', '3171090007', '2025-05-12 14:05:07', NULL);
+(5, 6, 'Samsung', 'Sales', 'masih_bekerja', 'Sales HP', '2019-01-01', '0000-00-00', 'Jakarta Selatan', '31', '3171', '3171090', '3171090007', '2025-05-12 14:05:07', NULL),
+(6, 1, 'Universitas Siguntang Mahaputra', 'Web Developer', 'masih_bekerja', 'analisis, merancang, develop, dan maintenance web software', '2018-01-01', '0000-00-00', 'Jln. Perintis Kemerdekaan', '16', '1671', '1671060', '1671060005', '2025-05-13 02:49:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -346,8 +347,8 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`id`, `username`, `password`, `hak_akses`, `created_at`, `last_login`) VALUES
-(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2025-05-12 21:18:20'),
-(23, 'okta467', '$2y$10$0lhFQXTfT8wjZ9YmmNVWruV36NLEeFoLKEbrwWaMfjHv3gtOb2H4C', 'siswa', '2024-06-24 18:13:00', '2025-05-12 21:18:18'),
+(9, 'admin', '$2y$10$VSwsaud3aHkzE3VzMfuGCO9YizH7A7wVnx7Xfi9kUDiJdhDY53Msy', 'admin', '2024-06-10 14:42:24', '2025-05-12 21:43:36'),
+(23, 'okta467', '$2y$10$0lhFQXTfT8wjZ9YmmNVWruV36NLEeFoLKEbrwWaMfjHv3gtOb2H4C', 'siswa', '2024-06-24 18:13:00', '2025-05-12 21:43:38'),
 (24, 'bimasatria', '$2y$10$PJ0tlPZHqurX0xzM2NA.XO3AXBpKr6oPbWI6m2u2V8haaDMfpk2J.', 'siswa', '2024-06-24 18:17:17', NULL),
 (25, '196506121990022003', '$2y$10$r6i9ouw57cTTevcboVpfxuaaeGE.LqvH0ivtFunGnpjhus3jtxu1q', 'kepala_sekolah', '2024-06-24 18:29:06', NULL);
 
@@ -641,7 +642,7 @@ ALTER TABLE `tbl_pangkat_golongan`
 -- AUTO_INCREMENT for table `tbl_pekerjaan_alumni`
 --
 ALTER TABLE `tbl_pekerjaan_alumni`
-  MODIFY `id_pekerjaan_alumni` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_pekerjaan_alumni` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_pendidikan`
